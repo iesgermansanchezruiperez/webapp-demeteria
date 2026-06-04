@@ -1,0 +1,53 @@
+# Contexto del Proyecto
+Eres un desarrollador experto en React y Vite. Estamos construyendo el Web Dashboard del proyecto DemeterIA (Agricultura de Precisión).
+La prioridad es el despliegue rápido, código modular, cero warnings y un enfoque minimalista. El backend utiliza Firebase Realtime Database (RTDB).
+
+# Stack Tecnológico
+- Vite + React (JSX)
+- Tailwind CSS
+- Tremor (@tremor/react) para componentes UI analíticos.
+
+# Reglas de Desarrollo (Specification-Driven Development)
+1. Escribe componentes funcionales atómicos.
+2. Todo el CSS debe manejarse mediante clases de Tailwind.
+3. No uses TypeScript, mantén los archivos en `.jsx`.
+4. Mockea SIEMPRE los datos antes de implementar la lógica real usando la estructura exacta proporcionada.
+
+# Estructura de Datos Simulada (Mock RTDB)
+La base de datos devuelve los sensores en un array. Usa exactamente este JSON:
+{
+  "crop_sensors": [
+    {
+      "name": "Sensor de temperatura",
+      "value_type": "°C",
+      "date": "2026-06-04T12:00:00Z",
+      "current": "26.10"
+    },
+    {
+      "name": "Sensor de humedad",
+      "value_type": "%",
+      "date": "2026-06-04T12:00:00Z",
+      "current": "50.00"
+    },
+    {
+      "name": "Sensor de pH",
+      "value_type": "pH",
+      "date": "2026-06-04T12:00:00Z",
+      "current": "6.10"
+    }
+  ]
+}
+
+# Skills & Comportamiento de la IA (Reglas Estrictas)
+- Anti-Yapping: Elimina saludos y texto de relleno. Devuelve solo código.
+- Cero Suposiciones: Si falta contexto crítico, no lo inventes. Pide aclaración.
+- Control de Alcance: Prohibido añadir funcionalidades o librerías extra no solicitadas.
+- Estandarización de UI: Toda la estilización debe resolverse mediante clases de Tailwind.
+
+
+# Reglas Avanzadas de UI/UX y Design Vibe ("Premium Agrotech")
+- **Filosofía Visual:** Estética "Apple / Stripe". Huye absolutamente del diseño genérico de panel de administración. El dashboard debe transmitir un estilo "Premium Agrotech" moderno, sofisticado y limpio.
+- **Layout y Espaciado:** Utiliza un diseño tipo "Bento Grid" o tarjetas distribuidas uniformemente con `grid-cols-1 md:grid-cols-3` de Tailwind. Añade `gap-6` entre elementos.
+- **Fondos y Contenedores:** Utiliza fondos principales con gradientes muy sutiles (ej. `bg-gradient-to-br from-slate-50 to-emerald-50/30`). Las tarjetas de Tremor deben sobrescribirse con clases de Tailwind para un efecto *glassmorphism*: `bg-white/80 backdrop-blur-md border border-white/50 rounded-2xl shadow-sm`.
+- **Tipografía y Accesibilidad (A11y):** Garantiza un alto contraste. Usa `tracking-tight` en los títulos para dar un aspecto más pulido y `text-slate-500` para textos secundarios. Utiliza los colores semánticos nativos de Tremor (`emerald`, `amber`, `rose`) para indicar los estados numéricos de los sensores.
+- **Microinteracciones:** Todo elemento interactivo debe sentirse orgánico. Añade siempre `transition-all duration-300 hover:shadow-md hover:-translate-y-0.5` a las tarjetas.

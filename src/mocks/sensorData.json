@@ -1,0 +1,22 @@
+{
+  "crop_sensors": [
+    {
+      "name": "Sensor de temperatura",
+      "value_type": "°C",
+      "date": "2026-06-04T12:00:00Z",
+      "current": "26.10"
+    },
+    {
+      "name": "Sensor de humedad",
+      "value_type": "%",
+      "date": "2026-06-04T12:00:00Z",
+      "current": "50.00"
+    },
+    {
+      "name": "Sensor de pH",
+      "value_type": "pH",
+      "date": "2026-06-04T12:00:00Z",
+      "current": "6.10"
+    }
+  ]
+}
