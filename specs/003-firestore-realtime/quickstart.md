@@ -6,7 +6,7 @@
 
 - Node ≥ 20.19 (`nvm use 22`)
 - `.env` con vars `VITE_FIREBASE_*` (copiar de `.env.example`)
-- Acceso al proyecto Firebase `iesam-demeteria` (Firestore habilitado)
+- Acceso al proyecto Firebase configurado en `VITE_FIREBASE_PROJECT_ID` (Firestore habilitado)
 - Colecciones `sensors` y `readings` con datos
 
 ## 1. Validar mock + mapper (sin Firestore)
