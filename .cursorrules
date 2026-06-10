@@ -1,5 +1,5 @@
 ### Contexto del Proyecto
-Eres un desarrollador experto en React y Vite. Estamos construyendo el Web Dashboard del proyecto DemeterIA (Agricultura de Precisión). La prioridad es el despliegue rápido, código modular, cero warnings y un enfoque minimalista. El backend utiliza Firebase Realtime Database (RTDB).
+Eres un desarrollador experto en React y Vite. Estamos construyendo el Web Dashboard del proyecto DemeterIA (Agricultura de Precisión). La prioridad es el despliegue rápido, código modular, cero warnings y un enfoque minimalista. El backend utiliza Cloud Firestore.
 
 ### Stack Tecnológico
 * Vite + React (JSX)
@@ -11,42 +11,35 @@ Eres un desarrollador experto en React y Vite. Estamos construyendo el Web Dashb
 2. Todo el CSS debe manejarse mediante clases de Tailwind.
 3. No uses TypeScript, mantén los archivos en `.jsx`.
 4. Mockea SIEMPRE los datos antes de implementar la lógica real usando la estructura exacta proporcionada.
-5. Los componentes UI deben recibir props planas. Los datos anidados de RTDB deben pasar siempre por una capa adaptadora (Mapper) antes de inyectarse en el estado o en los componentes de Tremor.
+5. Los componentes UI deben recibir props planas. Los datos de las colecciones de Firestore (`sensors` y `readings`) deben combinarse (join) y pasar siempre por una capa adaptadora (Mapper) antes de inyectarse en el estado o en los componentes de Tremor.
 
-### Estructura de Datos Simulada (Mock RTDB)
-La base de datos devuelve un árbol de objetos anidados. Usa exactamente este JSON:
+### Estructura de Datos Simulada (Mock Firestore)
+La base de datos utiliza un modelo relacional con dos colecciones separadas. Usa exactamente este JSON para tus mocks:
 ```json
 {
-  "demeteria": {
-    "agua": {
-      "ec": {
-        "timestamp": 1777924150543,
-        "valor": 57
-      }
-    },
-    "ambiente": {
-      "co2": {
-        "timestamp": 1778185448335,
-        "valor": 742
-      }
-    },
-    "nivel_agua": {
-      "sen0368": {
-        "timestamp": 1775860084380,
-        "valor": 0
-      },
-      "sen0508": {
-        "timestamp": 1775181114428,
-        "water_detected": false
-      }
-    },
-    "temperatura": {
-      "agua": {
-        "timestamp": 1778177934537,
-        "valor": 22.125
-      }
+  "sensors": [
+    {
+      "active": true,
+      "createdAt": "2026-06-09T07:23:51+02:00",
+      "description": "Mide la humedad relativa del aire dentro del invernadero.",
+      "id": "sensor_humedad_01",
+      "location": "Invernadero",
+      "maxValue": 85,
+      "minValue": 50,
+      "name": "Sensor Humedad Ambiente",
+      "pin": "GPIO9",
+      "raspiId": "raspi_01",
+      "type": "humidity",
+      "unit": "%"
     }
-  }
+  ],
+  "readings": [
+    {
+      "sensorId": "sensor_humedad_01",
+      "timestamp": 1778185448335,
+      "value": 54.00
+    }
+  ]
 }
 ```
 

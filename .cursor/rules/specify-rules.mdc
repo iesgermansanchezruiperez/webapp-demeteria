@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+---
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+at specs/003-firestore-realtime/plan.md and the technical design at
+specs/003-firestore-realtime/design.md
+<!-- SPECKIT END -->

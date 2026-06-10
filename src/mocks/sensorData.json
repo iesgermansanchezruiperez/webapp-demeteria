@@ -1,32 +1,101 @@
 {
-  "demeteria": {
-    "agua": {
-      "ec": {
-        "timestamp": 1777924150543,
-        "valor": 57
-      }
+  "sensors": [
+    {
+      "active": true,
+      "createdAt": "2026-06-09T07:23:51+02:00",
+      "description": "Mide la conductividad eléctrica del agua de riego.",
+      "id": "sensor_ec_01",
+      "location": "Invernadero",
+      "maxValue": 2000,
+      "minValue": 0,
+      "name": "Sensor EC Agua",
+      "pin": "GPIO4",
+      "raspiId": "raspi_01",
+      "type": "ec",
+      "unit": "µS/cm"
     },
-    "ambiente": {
-      "co2": {
-        "timestamp": 1778185448335,
-        "valor": 742
-      }
+    {
+      "active": true,
+      "createdAt": "2026-06-09T07:23:51+02:00",
+      "description": "Mide la humedad relativa del aire dentro del invernadero.",
+      "id": "sensor_humedad_01",
+      "location": "Invernadero",
+      "maxValue": 85,
+      "minValue": 50,
+      "name": "Sensor Humedad Ambiente",
+      "pin": "GPIO9",
+      "raspiId": "raspi_01",
+      "type": "humidity",
+      "unit": "%"
     },
-    "nivel_agua": {
-      "sen0368": {
-        "timestamp": 1775860084380,
-        "valor": 0
-      },
-      "sen0508": {
-        "timestamp": 1775181114428,
-        "water_detected": false
-      }
+    {
+      "active": true,
+      "createdAt": "2026-06-09T07:23:51+02:00",
+      "description": "Mide la temperatura del agua de riego.",
+      "id": "sensor_temp_agua_01",
+      "location": "Invernadero",
+      "maxValue": 35,
+      "minValue": 10,
+      "name": "Sensor Temperatura Agua",
+      "pin": "GPIO11",
+      "raspiId": "raspi_01",
+      "type": "temperature",
+      "unit": "°C"
     },
-    "temperatura": {
-      "agua": {
-        "timestamp": 1778177934537,
-        "valor": 22.125
-      }
+    {
+      "active": false,
+      "createdAt": "2026-06-09T07:23:51+02:00",
+      "description": "Sensor de luz desactivado para pruebas.",
+      "id": "sensor_luz_01",
+      "location": "Invernadero",
+      "maxValue": 100,
+      "minValue": 0,
+      "name": "Sensor Luz",
+      "pin": "GPIO10",
+      "raspiId": "raspi_01",
+      "type": "light",
+      "unit": "lux"
+    },
+    {
+      "active": true,
+      "createdAt": "2026-06-09T07:23:51+02:00",
+      "description": "Sensor activo sin lecturas en mock.",
+      "id": "sensor_ph_01",
+      "location": "Invernadero",
+      "maxValue": 8,
+      "minValue": 4,
+      "name": "Sensor pH Agua",
+      "pin": "GPIO12",
+      "raspiId": "raspi_01",
+      "type": "ph",
+      "unit": "pH"
     }
-  }
+  ],
+  "readings": [
+    {
+      "sensorId": "sensor_ec_01",
+      "timestamp": 1777924150543,
+      "value": 57
+    },
+    {
+      "sensorId": "sensor_humedad_01",
+      "timestamp": 1778185448000,
+      "value": 52
+    },
+    {
+      "sensorId": "sensor_humedad_01",
+      "timestamp": 1778185448335,
+      "value": 54
+    },
+    {
+      "sensorId": "sensor_temp_agua_01",
+      "timestamp": 1778177934537,
+      "value": 22.125
+    },
+    {
+      "sensorId": "sensor_luz_01",
+      "timestamp": 1778185448335,
+      "value": 800
+    }
+  ]
 }
