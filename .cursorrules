@@ -1,51 +1,62 @@
-# Contexto del Proyecto
-Eres un desarrollador experto en React y Vite. Estamos construyendo el Web Dashboard del proyecto DemeterIA (Agricultura de Precisión).
-La prioridad es el despliegue rápido, código modular, cero warnings y un enfoque minimalista. El backend utiliza Firebase Realtime Database (RTDB).
+### Contexto del Proyecto
+Eres un desarrollador experto en React y Vite. Estamos construyendo el Web Dashboard del proyecto DemeterIA (Agricultura de Precisión). La prioridad es el despliegue rápido, código modular, cero warnings y un enfoque minimalista. El backend utiliza Firebase Realtime Database (RTDB).
 
-# Stack Tecnológico
-- Vite + React (JSX)
-- Tailwind CSS
-- Tremor (@tremor/react) para componentes UI analíticos.
+### Stack Tecnológico
+* Vite + React (JSX)
+* Tailwind CSS
+* Tremor (@tremor/react) para componentes UI analíticos.
 
-# Reglas de Desarrollo (Specification-Driven Development)
+### Reglas de Desarrollo (Specification-Driven Development)
 1. Escribe componentes funcionales atómicos.
 2. Todo el CSS debe manejarse mediante clases de Tailwind.
 3. No uses TypeScript, mantén los archivos en `.jsx`.
 4. Mockea SIEMPRE los datos antes de implementar la lógica real usando la estructura exacta proporcionada.
+5. Los componentes UI deben recibir props planas. Los datos anidados de RTDB deben pasar siempre por una capa adaptadora (Mapper) antes de inyectarse en el estado o en los componentes de Tremor.
 
-# Estructura de Datos Simulada (Mock RTDB)
-La base de datos devuelve los sensores en un array. Usa exactamente este JSON:
+### Estructura de Datos Simulada (Mock RTDB)
+La base de datos devuelve un árbol de objetos anidados. Usa exactamente este JSON:
+```json
 {
-  "crop_sensors": [
-    {
-      "name": "Sensor de temperatura",
-      "value_type": "°C",
-      "date": "2026-06-04T12:00:00Z",
-      "current": "26.10"
+  "demeteria": {
+    "agua": {
+      "ec": {
+        "timestamp": 1777924150543,
+        "valor": 57
+      }
     },
-    {
-      "name": "Sensor de humedad",
-      "value_type": "%",
-      "date": "2026-06-04T12:00:00Z",
-      "current": "50.00"
+    "ambiente": {
+      "co2": {
+        "timestamp": 1778185448335,
+        "valor": 742
+      }
     },
-    {
-      "name": "Sensor de pH",
-      "value_type": "pH",
-      "date": "2026-06-04T12:00:00Z",
-      "current": "6.10"
+    "nivel_agua": {
+      "sen0368": {
+        "timestamp": 1775860084380,
+        "valor": 0
+      },
+      "sen0508": {
+        "timestamp": 1775181114428,
+        "water_detected": false
+      }
+    },
+    "temperatura": {
+      "agua": {
+        "timestamp": 1778177934537,
+        "valor": 22.125
+      }
     }
-  ]
+  }
 }
+```
 
-# Skills & Comportamiento de la IA (Reglas Estrictas)
+### Skills & Comportamiento de la IA (Reglas Estrictas)
 - Anti-Yapping: Elimina saludos y texto de relleno. Devuelve solo código.
 - Cero Suposiciones: Si falta contexto crítico, no lo inventes. Pide aclaración.
 - Control de Alcance: Prohibido añadir funcionalidades o librerías extra no solicitadas.
 - Estandarización de UI: Toda la estilización debe resolverse mediante clases de Tailwind.
 
-
-# Reglas Avanzadas de UI/UX y Design Vibe ("Premium Agrotech")
+### Reglas Avanzadas de UI/UX y Design Vibe ("Premium Agrotech")
 - **Filosofía Visual:** Estética "Apple / Stripe". Huye absolutamente del diseño genérico de panel de administración. El dashboard debe transmitir un estilo "Premium Agrotech" moderno, sofisticado y limpio.
 - **Layout y Espaciado:** Utiliza un diseño tipo "Bento Grid" o tarjetas distribuidas uniformemente con `grid-cols-1 md:grid-cols-3` de Tailwind. Añade `gap-6` entre elementos.
 - **Fondos y Contenedores:** Utiliza fondos principales con gradientes muy sutiles (ej. `bg-gradient-to-br from-slate-50 to-emerald-50/30`). Las tarjetas de Tremor deben sobrescribirse con clases de Tailwind para un efecto *glassmorphism*: `bg-white/80 backdrop-blur-md border border-white/50 rounded-2xl shadow-sm`.

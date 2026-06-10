@@ -1,5 +1,8 @@
 import sensorData from '../mocks/sensorData.json'
+import { mapDemeteriaRtdb } from '../mappers/mapDemeteriaRtdb'
 import SensorCard from './SensorCard'
+
+const sensors = mapDemeteriaRtdb(sensorData)
 
 export default function Dashboard() {
   return (
@@ -19,7 +22,7 @@ export default function Dashboard() {
         </p>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {sensorData.crop_sensors.map((sensor) => (
+        {sensors.map((sensor) => (
           <SensorCard key={sensor.name} sensor={sensor} />
         ))}
       </div>

@@ -1,22 +1,32 @@
 {
-  "crop_sensors": [
-    {
-      "name": "Sensor de temperatura",
-      "value_type": "°C",
-      "date": "2026-06-04T12:00:00Z",
-      "current": "26.10"
+  "demeteria": {
+    "agua": {
+      "ec": {
+        "timestamp": 1777924150543,
+        "valor": 57
+      }
     },
-    {
-      "name": "Sensor de humedad",
-      "value_type": "%",
-      "date": "2026-06-04T12:00:00Z",
-      "current": "50.00"
+    "ambiente": {
+      "co2": {
+        "timestamp": 1778185448335,
+        "valor": 742
+      }
     },
-    {
-      "name": "Sensor de pH",
-      "value_type": "pH",
-      "date": "2026-06-04T12:00:00Z",
-      "current": "6.10"
+    "nivel_agua": {
+      "sen0368": {
+        "timestamp": 1775860084380,
+        "valor": 0
+      },
+      "sen0508": {
+        "timestamp": 1775181114428,
+        "water_detected": false
+      }
+    },
+    "temperatura": {
+      "agua": {
+        "timestamp": 1778177934537,
+        "valor": 22.125
+      }
     }
-  ]
+  }
 }
