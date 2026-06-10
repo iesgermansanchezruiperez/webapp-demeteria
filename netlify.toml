@@ -1,0 +1,5 @@
+# Netlify build config — DemeterIA webapp
+# Vite embeds VITE_* vars in the client bundle by design (Firebase Web SDK).
+# Omit them from secrets scanning to avoid false positives on every deploy.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "VITE_FIREBASE_API_KEY,VITE_FIREBASE_APP_ID,VITE_FIREBASE_AUTH_DOMAIN,VITE_FIREBASE_DATABASE_URL,VITE_FIREBASE_MESSAGING_SENDER_ID,VITE_FIREBASE_PROJECT_ID,VITE_FIREBASE_STORAGE_BUCKET"
