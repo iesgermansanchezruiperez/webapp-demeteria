@@ -7,9 +7,11 @@ import {
 } from '../mappers/mapFirestoreToSensors'
 import SensorCard from './SensorCard'
 import SensorSkeleton from './SensorSkeleton'
+import HistorySection from './HistorySection'
 
 export default function Dashboard() {
   const [data, setData] = useState([])
+  const [sensorsCatalog, setSensorsCatalog] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [skeletonCount, setSkeletonCount] = useState(5)
@@ -22,6 +24,7 @@ export default function Dashboard() {
   useEffect(() => {
     function recomputeData() {
       const latest = resolveLatestReadings(readingsRawRef.current)
+      setSensorsCatalog(sensorsRawRef.current)
       setData(mapFirestoreToSensors(sensorsRawRef.current, latest))
 
       const activeCount = sensorsRawRef.current.filter((s) => s.active === true).length
@@ -106,6 +109,8 @@ export default function Dashboard() {
               <SensorCard key={sensor.name} sensor={sensor} />
             ))}
       </div>
+
+      {!loading && <HistorySection sensors={sensorsCatalog} />}
     </section>
   )
 }
